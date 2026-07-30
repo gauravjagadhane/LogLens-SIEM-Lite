@@ -1,0 +1,20 @@
+[
+  {
+    "type": "SQL Injection",
+    "severity": "high",
+    "description": "SQL injection pattern found in the request URL.",
+    "pattern": "(?i)(?:union(?:%20|\\s)+select|(?:'|%27)?\\s*or\\s+1\\s*=\\s*1|drop(?:%20|\\s)+table)"
+  },
+  {
+    "type": "Cross-Site Scripting",
+    "severity": "medium",
+    "description": "Cross-site scripting pattern found in the request URL.",
+    "pattern": "(?i)(?:<script|%3cscript|javascript:|onerror\\s*=)"
+  },
+  {
+    "type": "Directory Traversal",
+    "severity": "high",
+    "description": "Directory traversal pattern found in the request URL.",
+    "pattern": "(?i)(?:\\.\\./|\\.\\.%2f|%2e%2e(?:/|%2f)|/etc/passwd)"
+  }
+]
