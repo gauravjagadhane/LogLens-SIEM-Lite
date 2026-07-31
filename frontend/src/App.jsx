@@ -68,35 +68,68 @@ export default function App() {
 
   return (
     <main className="app-shell">
-      <header>
-        <div>
-          <p className="eyebrow">SIEM-LITE SECURITY MONITORING</p>
-          <h1>LogLens</h1>
-          <p className="subtitle">
-            Turn web-server access logs into practical security insights.
-          </p>
-        </div>
+      <header className="dashboard-header">
 
-        <div className="actions">
-          <label className="button primary">
-            Upload Log
-            <input
-              type="file"
-              accept=".log,.txt,.access"
-              onChange={handleFileChange}
-              hidden
-            />
-          </label>
+  <div className="hero">
 
-          <button
-            className="button secondary"
-            onClick={() => runAnalysis(loadDemo)}
-            disabled={loading}
-          >
-            Load Demo
-          </button>
-        </div>
-      </header>
+    <div className="logo-box">
+      🛡
+    </div>
+
+    <div>
+
+      <p className="eyebrow">
+        SECURITY OPERATIONS CENTER
+      </p>
+
+      <h1>LogLens</h1>
+
+      <p className="subtitle">
+        Real-time Threat Detection & Log Analysis Dashboard
+      </p>
+
+      <div className="status-row">
+
+        <span className="status online">
+          ● System Online
+        </span>
+
+        {job && (
+          <span className="status">
+            📄 {job.source_name}
+          </span>
+        )}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div className="actions">
+
+    <label className="button primary">
+      📂 Upload Log
+
+      <input
+        type="file"
+        accept=".log,.txt,.access"
+        onChange={handleFileChange}
+        hidden
+      />
+    </label>
+
+    <button
+      className="button secondary"
+      onClick={() => runAnalysis(loadDemo)}
+      disabled={loading}
+    >
+      ⚡ Load Demo
+    </button>
+
+  </div>
+
+</header>
 
       <p className={`notice ${job?.status === "failed" ? "error" : ""}`}>
         {loading ? "Analyzing…" : message}
